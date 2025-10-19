@@ -1,0 +1,583 @@
+
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rhythm Kin | Amapiano & Afro House DJ - Helsinki</title>
+    <meta
+      name="description"
+      content="Rhythm Kin tarjoaa korkeavireiset amapiano- ja afro house -DJ-palvelut tapahtumiin ympäri Suomea."
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+      :root {
+        --rk-primary: #ff7a18;
+        --rk-primary-dark: #df4800;
+        --rk-dark: #0b0f19;
+        --rk-light: #f5f7ff;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        color: var(--rk-light);
+        background: radial-gradient(circle at top left, #1b2237, #02030a);
+        min-height: 100vh;
+      }
+
+      .rk-navbar {
+        backdrop-filter: blur(16px);
+        background: rgba(11, 15, 25, 0.8);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .rk-hero {
+        position: relative;
+        overflow: hidden;
+        padding: 6rem 0 4rem;
+      }
+
+      .rk-hero::after {
+        content: "";
+        position: absolute;
+        inset: 20% -40% -40% -40%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 122, 24, 0.35),
+          rgba(255, 122, 24, 0)
+        );
+        z-index: -1;
+      }
+
+      .rk-badge {
+        display: inline-flex;
+        gap: 0.5rem;
+        align-items: center;
+        padding: 0.35rem 0.85rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--rk-light);
+        font-size: 0.85rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .rk-section {
+        padding: 4rem 0;
+      }
+
+      .rk-section-title {
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .rk-cta-btn {
+        background: linear-gradient(135deg, var(--rk-primary), #ffb347);
+        border: none;
+        color: #02030a;
+        font-weight: 600;
+        padding: 0.85rem 1.8rem;
+        border-radius: 999px;
+        box-shadow: 0 12px 35px rgba(255, 122, 24, 0.35);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .rk-cta-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 40px rgba(255, 122, 24, 0.5);
+      }
+
+      .rk-card {
+        border-radius: 1rem;
+        background: rgba(15, 18, 32, 0.75);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        transition: transform 0.15s ease, border-color 0.15s ease;
+      }
+
+      .rk-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(255, 122, 24, 0.35);
+      }
+
+      .rk-highlight {
+        color: var(--rk-primary);
+      }
+
+      .rk-image-frame {
+        position: relative;
+        border-radius: 1.5rem;
+        overflow: hidden;
+        min-height: 320px;
+        background: rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .rk-image-frame::after {
+        content: "";
+        position: absolute;
+        inset: 12px;
+        border: 1px dashed rgba(255, 255, 255, 0.4);
+        border-radius: 1.2rem;
+        pointer-events: none;
+      }
+
+      .rk-image-frame span {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        font-weight: 500;
+        line-height: 1.4;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .rk-footer {
+        padding: 2rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(11, 15, 25, 0.8);
+      }
+
+      .rk-floating-badge {
+        position: absolute;
+        right: -24px;
+        top: 24px;
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 1rem;
+        padding: 1rem;
+        backdrop-filter: blur(12px);
+        max-width: 220px;
+        font-size: 0.95rem;
+        box-shadow: 0 25px 60px rgba(7, 9, 16, 0.45);
+      }
+
+      @media (max-width: 992px) {
+        .rk-hero {
+          text-align: center;
+        }
+
+        .rk-floating-badge {
+          position: static;
+          margin: 2rem auto 0;
+        }
+
+        .rk-image-frame {
+          margin-top: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="rk-navbar py-3 sticky-top">
+      <div class="container d-flex flex-wrap align-items-center justify-content-between">
+        <a class="navbar-brand text-uppercase fw-bold rk-highlight" href="#hero"
+          >Rhythm Kin</a
+        >
+        <nav class="d-flex gap-3">
+          <a class="text-decoration-none text-white-50" href="#about">Meistä</a>
+          <a class="text-decoration-none text-white-50" href="#services">Palvelut</a>
+          <a class="text-decoration-none text-white-50" href="#packages">Paketteja</a>
+          <a class="text-decoration-none text-white-50" href="#contact">Yhteys</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="rk-hero" id="hero">
+        <div class="container">
+          <div class="row align-items-center justify-content-between">
+            <div class="col-lg-6">
+              <div class="rk-badge mb-3">
+                <span class="badge-dot bg-warning rounded-circle" style="width: 8px; height: 8px;"></span>
+                Amapiano & Afro House DJ
+              </div>
+              <h1 class="display-4 fw-bold">
+                Sytytä yö <span class="rk-highlight">afro house</span> &amp; <span class="rk-highlight">amapiano</span> -soundilla.
+              </h1>
+              <p class="lead text-white-50 mt-3">
+                Rhythm Kin nostaa tunnelman maailmaluokan afrikkalaisilla rytmeillä.
+                Meidän DJ-kollektiivi yhdistää silkkaa groovea, live-perkussioita ja näyttävää
+                valaistusta, jotta tapahtumasi jää mieleen.
+              </p>
+              <div class="d-flex flex-wrap gap-3 align-items-center mt-4">
+                <button class="rk-cta-btn" data-bs-toggle="modal" data-bs-target="#contactModal">
+                  Pyydä tarjous
+                </button>
+                <a class="text-white-50" href="#services">Tutustu palveluihin</a>
+              </div>
+              <div class="rk-floating-badge mt-5 mt-lg-0">
+                <strong>Promo:</strong> kevään keikkapäivät -15 % Helsingin alueella. Varaa viimeistään 30.4.
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="rk-image-frame">
+                <span>
+                  [AI-kuvapyyntö]<br />
+                  Luo 4K pystysuuntainen kuva DJ:stä afrofuturistisessa klubissa, lämmin oranssi ja violetti valaistus, tanssiva yleisö edessä.
+                </span>
+                <!-- Korvaa kuva src-parametrilla, kun AI-kuva on luotu.
+                Esim: <img src="ai-generated-image.jpg" alt="Rhythm Kin DJ tanssittaa yleisöä" class="img-fluid" /> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="rk-section" id="about">
+        <div class="container">
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-6">
+              <h2 class="rk-section-title">Keitä me olemme</h2>
+              <p class="text-white-50">
+                Rhythm Kin on helsinkiläinen DJ-palvelu, jonka intohimona on tuoda afrikkalaiset
+                klubirytmit Suomen tapahtumiin. Tiimimme koostuu DJ:stä, perkussionistista ja valosuunnittelijasta,
+                jotka toimittavat saumattomasti hiotun elämyksen juhliin, festivaaleille ja yritystilaisuuksiin.
+              </p>
+              <p class="text-white-50">
+                Tarjoamme sekä tinkimättömän äänenlaadun että asiantuntevan ohjelmasuunnittelun.
+                Jokainen setti rakennetaan tapahtumasi tunnelman ja yleisön mukaan.
+              </p>
+            </div>
+            <div class="col-lg-6">
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <div class="rk-card p-4 h-100">
+                    <h5 class="fw-semibold rk-highlight">10+ vuotta</h5>
+                    <p class="text-white-50 mb-0">Yli sata keikkaa klubeilla, bränditilaisuuksissa ja yksityisbileissä.</p>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="rk-card p-4 h-100">
+                    <h5 class="fw-semibold rk-highlight">Monikielinen juonnot</h5>
+                    <p class="text-white-50 mb-0">Suomi, englanti ja portugali – juonnot ja shout-outit yleisölle.</p>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="rk-card p-4 h-100">
+                    <h5 class="fw-semibold rk-highlight">Verkosto</h5>
+                    <p class="text-white-50 mb-0">Yhteistyö tanssiryhmien, MC:iden ja visualistien kanssa kokonaisvaltaisiin elämyksiin.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="rk-section bg-white text-dark" id="services">
+        <div class="container">
+          <div class="text-center mb-5">
+            <span class="rk-badge text-dark bg-warning bg-opacity-25">
+              Palvelut
+            </span>
+            <h2 class="rk-section-title mt-3">Mitä tarjoamme</h2>
+            <p class="text-secondary">
+              Kuratoimme jokaisen tapahtuman ainutlaatuiseksi kokonaisuudeksi, joka hengittää afrikkalaista rytmiikkaa.
+            </p>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="rk-card p-4 h-100 text-white">
+                <h4>Signature Set</h4>
+                <p class="text-white-50">
+                  DJ + live-perkussio + VJ. 90 minuutin show, joka nostaa yleisön hype-tilaan.
+                </p>
+                <ul class="text-white-50 ps-3">
+                  <li>Afrofuturistinen valaistus</li>
+                  <li>Custom intro ja outro</li>
+                  <li>VJ-setti LED-screenille</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="rk-card p-4 h-100 text-white">
+                <h4>Branded Experience</h4>
+                <p class="text-white-50">
+                  Räätälöity yritystilaisuus. Brändätyt visuaalit, äänilogot ja MC-juonto.
+                </p>
+                <ul class="text-white-50 ps-3">
+                  <li>Workshopeja &amp; DJ-klinikka</li>
+                  <li>Kustomoidut soittolistat Spotifyhin</li>
+                  <li>Aftermovie-tuotanto kumppaneiden kautta</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="rk-card p-4 h-100 text-white">
+                <h4>Sunrise Session</h4>
+                <p class="text-white-50">
+                  Ulkoilma- tai aamuauringon keikat. Chill amapiano, afro deep house ja live-hangdrum.
+                </p>
+                <ul class="text-white-50 ps-3">
+                  <li>Mobiili äänentoisto</li>
+                  <li>Akustiset perkussiot</li>
+                  <li>Ambient-projektio</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="rk-section" id="packages">
+        <div class="container">
+          <div class="row g-4 align-items-stretch">
+            <div class="col-lg-4">
+              <h2 class="rk-section-title">Keikkapaketit</h2>
+              <p class="text-white-50">
+                Valitse valmis paketti tai kerro budjettisi – rakennamme siihen sopivan kokonaisuuden.
+              </p>
+              <div class="d-flex gap-2">
+                <button class="btn btn-outline-light btn-sm" data-scroll-target="#contact">
+                  Varaa videopalaveri
+                </button>
+                <button class="btn btn-outline-warning btn-sm" data-scroll-target="#schedule">
+                  Näe vapaat päivät
+                </button>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="rk-card h-100 p-4">
+                    <div class="d-flex align-items-baseline justify-content-between">
+                      <h5 class="rk-highlight">Club Pulse</h5>
+                      <span class="text-white-50">alk. 890 €</span>
+                    </div>
+                    <p class="text-white-50">
+                      3 tunnin DJ-setti klubille tai tapahtumalle, täydellinen prime time -spottiin.
+                    </p>
+                    <ul class="text-white-50 ps-3">
+                      <li>Täysi DJ-setup &amp; mikseri</li>
+                      <li>Perusvalosetti ja savukone</li>
+                      <li>1 henkilökunta + 1 teknikko</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="rk-card h-100 p-4">
+                    <div class="d-flex align-items-baseline justify-content-between">
+                      <h5 class="rk-highlight">Corporate Vibes</h5>
+                      <span class="text-white-50">alk. 1 290 €</span>
+                    </div>
+                    <p class="text-white-50">
+                      Afterworkit, lanseeraukset ja gaalat. Edustava tiimi &amp; viimeistelty tuotanto.
+                    </p>
+                    <ul class="text-white-50 ps-3">
+                      <li>DJ + MC -duo</li>
+                      <li>Brandattu visuaalinen intro</li>
+                      <li>Valmistava musiikkistrategia</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="rk-card h-100 p-4">
+                    <div class="d-flex align-items-baseline justify-content-between">
+                      <h5 class="rk-highlight">Destination Flow</h5>
+                      <span class="text-white-50">pyydä tarjous</span>
+                    </div>
+                    <p class="text-white-50">
+                      Festivaalit, juhannus, saaristo. Koko tuotantotiimi liikkeelle kaikkine elementteineen.
+                    </p>
+                    <ul class="text-white-50 ps-3">
+                      <li>Matka- ja majoituslogistiikka</li>
+                      <li>Laajennettu valoshow</li>
+                      <li>Mahdollisuus live-vokalisteihin</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="rk-card h-100 p-4" id="schedule">
+                    <h5 class="rk-highlight mb-3">Seuraavat vapaat viikonloput</h5>
+                    <ul class="list-unstyled mb-0 text-white-50" id="scheduleList">
+                      <!-- Täytetään JavaScriptilla -->
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="rk-section bg-white text-dark" id="testimonials">
+        <div class="container">
+          <div class="text-center mb-5">
+            <h2 class="rk-section-title">Miltä se kuulostaa?</h2>
+            <p class="text-secondary">
+              "Rhythm Kin nosti meidän tuotannon aivan uudelle tasolle. Tunnelma oli kuin Lagosissa!" – <strong>Hot Rhythm Festival</strong>
+            </p>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="rk-card p-4 text-white h-100">
+                <p class="fst-italic text-white-50">
+                  "Harvoin DJ-tiimi ottaa näin hyvin haltuun yleisön. Afro house -setti toimi täydellisesti."
+                </p>
+                <small class="d-block text-white-50">- Kaisa, Flow Lounge</small>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="rk-card p-4 text-white h-100">
+                <p class="fst-italic text-white-50">
+                  "Tekninen tuotanto ja brändäys oli ensiluokkaista. Suosittelemme yritystapahtumiin."
+                </p>
+                <small class="d-block text-white-50">- Daniel, Vivid Agency</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="rk-section" id="contact">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-lg-5">
+              <h2 class="rk-section-title">Varaa meidät</h2>
+              <p class="text-white-50">
+                Kerro tapahtumastasi, ja palaamme 24 tunnin sisällä alustavan tarjouksen ja ohjelmarungon kanssa.
+              </p>
+              <div class="rk-card p-4 text-white">
+                <p class="mb-2">
+                  <strong>Email:</strong>
+                  <a class="text-white-50" href="mailto:hello@rhythmkin.fi">hello@rhythmkin.fi</a>
+                </p>
+                <p class="mb-0"><strong>Puhelin:</strong> +358 40 123 4567</p>
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="rk-card p-4">
+                <form class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label text-white-50" for="nameInput">Nimi</label>
+                    <input class="form-control" id="nameInput" type="text" placeholder="Etunimi Sukunimi" />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label text-white-50" for="emailInput">Sähköposti</label>
+                    <input class="form-control" id="emailInput" type="email" placeholder="sinä@yritys.fi" />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label text-white-50" for="dateInput">Tapahtumapäivä</label>
+                    <input class="form-control" id="dateInput" type="date" />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label text-white-50" for="audienceInput">Yleisön koko</label>
+                    <input class="form-control" id="audienceInput" type="number" placeholder="esim. 250" />
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label text-white-50" for="detailsInput">Lisätiedot</label>
+                    <textarea class="form-control" id="detailsInput" rows="3" placeholder="Teema, aikataulu, erityistoiveet"></textarea>
+                  </div>
+                  <div class="col-12 d-flex justify-content-end">
+                    <button class="rk-cta-btn" type="submit">Lähetä</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="rk-footer">
+      <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+        <span class="text-white-50">&copy; 2024 Rhythm Kin. Kaikki oikeudet pidätetään.</span>
+        <div class="d-flex gap-3">
+          <a class="text-white-50 text-decoration-none" href="#">Instagram</a>
+          <a class="text-white-50 text-decoration-none" href="#">SoundCloud</a>
+          <a class="text-white-50 text-decoration-none" href="#">Press-kit</a>
+        </div>
+      </div>
+    </footer>
+
+    <div
+      class="modal fade"
+      id="contactModal"
+      tabindex="-1"
+      aria-labelledby="contactModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-white border-light border-opacity-25">
+          <div class="modal-header border-0">
+            <h5 class="modal-title" id="contactModalLabel">Pyydä tarjous</h5>
+            <button
+              class="btn-close btn-close-white"
+              type="button"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p class="text-white-50">
+              Lähetä meille tapahtuman perustiedot, niin olemme sinuun yhteydessä viimeistään seuraavana arkipäivänä.
+            </p>
+            <a class="rk-cta-btn w-100 text-center" href="mailto:hello@rhythmkin.fi">hello@rhythmkin.fi</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // Mark upcoming three available weekends dynamically.
+      (function () {
+        const scheduleList = document.getElementById("scheduleList");
+        if (!scheduleList) return;
+
+        const today = new Date();
+        const options = { day: "numeric", month: "long" };
+        const items = [];
+
+        while (items.length < 3) {
+          const nextSaturday = new Date(today);
+          nextSaturday.setDate(today.getDate() + ((6 - today.getDay() + 7) % 7));
+          const friday = new Date(nextSaturday);
+          friday.setDate(nextSaturday.getDate() - 1);
+          const sunday = new Date(nextSaturday);
+          sunday.setDate(nextSaturday.getDate() + 1);
+
+          const label = `${friday.toLocaleDateString("fi-FI", options)} – ${sunday.toLocaleDateString("fi-FI", options)}`;
+
+          if (!items.includes(label)) {
+            items.push(label);
+          }
+
+          today.setDate(today.getDate() + 7);
+        }
+
+        scheduleList.innerHTML = items
+          .map((range) => `<li class="mb-2">${range}</li>`)
+          .join("");
+      })();
+
+      // Smooth scroll helper for anchor buttons.
+      document.querySelectorAll("[data-scroll-target]").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          const target = document.querySelector(button.dataset.scrollTarget);
+          if (!target) return;
+          event.preventDefault();
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+    </script>
+  </body>
+</html>
