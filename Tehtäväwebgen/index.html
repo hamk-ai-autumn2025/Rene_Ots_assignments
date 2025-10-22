@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Image Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="header">
+      <h1>AI Image Studio</h1>
+      <p class="tagline">Craft detailed prompts, tune the aspect ratio, and generate high-quality visuals.</p>
+    </header>
+
+    <main class="main-content">
+      <section class="panel">
+        <form id="generator-form" class="generator-form">
+          <label class="field">
+            <span class="field-label">Prompt</span>
+            <textarea id="prompt" rows="4" placeholder="Describe the image you want to generate..." required></textarea>
+          </label>
+
+          <label class="field">
+            <span class="field-label">Negative Prompt</span>
+            <textarea id="negative-prompt" rows="3" placeholder="Elements you want to avoid (optional)"></textarea>
+          </label>
+
+          <label class="field">
+            <span class="field-label">Aspect Ratio</span>
+            <div class="aspect-options" role="radiogroup" aria-label="Aspect ratio">
+              <label class="chip">
+                <input type="radio" name="aspect" value="1:1" checked>
+                <span>1:1</span>
+              </label>
+              <label class="chip">
+                <input type="radio" name="aspect" value="3:2">
+                <span>3:2</span>
+              </label>
+              <label class="chip">
+                <input type="radio" name="aspect" value="16:9">
+                <span>16:9</span>
+              </label>
+              <label class="chip">
+                <input type="radio" name="aspect" value="9:16">
+                <span>9:16</span>
+              </label>
+            </div>
+          </label>
+
+          <label class="field">
+            <span class="field-label">Guidance Strength</span>
+            <input type="range" id="guidance" min="1" max="20" value="7">
+            <div class="range-value"><span id="guidance-value">7</span></div>
+          </label>
+
+          <button type="submit" class="primary-button" id="generate-button">
+            <span class="button-label">Generate Image</span>
+            <span class="button-progress" aria-hidden="true"></span>
+          </button>
+        </form>
+      </section>
+
+      <section class="panel preview-panel">
+        <div class="preview-header">
+          <h2>Preview</h2>
+          <button type="button" class="secondary-button" id="download-button" disabled>Download</button>
+        </div>
+        <div id="preview-container" class="preview-placeholder">
+          <span class="preview-text">Generated images will appear here.</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>AI Image Studio is pre-wired for OpenAI’s Images API. Enter your prompt, generate, then download the output in one click.</p>
+    </footer>
+  </div>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
