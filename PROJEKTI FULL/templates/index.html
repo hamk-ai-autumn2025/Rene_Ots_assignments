@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Kids Book</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Nunito:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="bg-cloud bg-cloud-one"></div>
+    <div class="bg-cloud bg-cloud-two"></div>
+    <div class="bg-cloud bg-cloud-three"></div>
+
+    <div class="app-shell">
+      <header class="top-nav">
+        <div class="logo">
+          <span class="logo-main">AI Kids</span>
+          <span class="logo-sub">Book</span>
+        </div>
+        <nav class="nav-links">
+          <a href="#" class="nav-link">Read</a>
+          <a href="#" class="nav-link">My Stories</a>
+          <button class="login-btn" type="button">Log in</button>
+        </nav>
+      </header>
+
+      <main class="content">
+        <section class="hero">
+          <h1>Create Your Own Story</h1>
+          <p>Choose your story options to get started!</p>
+        </section>
+
+        <form id="storyForm">
+          <section class="card-grid">
+            <div class="option-card sunshine">
+              <button
+                type="button"
+                class="card-arrow prev"
+                data-target="characterSelect"
+                data-direction="-1"
+                aria-label="Previous character"
+              >
+                ‹
+              </button>
+              <div class="card-text">
+                <p class="card-label">Main Character</p>
+                <p class="card-value" data-display="character">Princess</p>
+              </div>
+              <div class="card-art photo-card">
+                <img
+                  src="{{ url_for('character_images', filename='Main Character/Princess.png') }}"
+                  alt="Illustration of Princess character"
+                  id="characterImage"
+                />
+              </div>
+              <select
+                name="character"
+                id="characterSelect"
+                data-image-target="characterImage"
+                data-image-alt-prefix="Illustration of "
+              >
+                <option
+                  value="Princess"
+                  data-image="{{ url_for('character_images', filename='Main Character/Princess.png') }}"
+                  selected
+                >
+                  Princess
+                </option>
+                <option
+                  value="Robot Inventor"
+                  data-image="{{ url_for('character_images', filename='Main Character/Robot Inventor.png') }}"
+                >
+                  Robot Inventor
+                </option>
+                <option
+                  value="Space Explorer"
+                  data-image="{{ url_for('character_images', filename='Main Character/Space Explorer.png') }}"
+                >
+                  Space Explorer
+                </option>
+                <option
+                  value="Forest Guardian"
+                  data-image="{{ url_for('character_images', filename='Main Character/Forest Guardian.png') }}"
+                >
+                  Forest Guardian
+                </option>
+                <option
+                  value="Sea Mermaid"
+                  data-image="{{ url_for('character_images', filename='Main Character/Sea Mermaid.png') }}"
+                >
+                  Sea Mermaid
+                </option>
+              </select>
+              <button
+                type="button"
+                class="card-arrow next"
+                data-target="characterSelect"
+                data-direction="1"
+                aria-label="Next character"
+              >
+                ›
+              </button>
+            </div>
+
+            <div class="option-card lagoon">
+              <button
+                type="button"
+                class="card-arrow prev"
+                data-target="settingSelect"
+                data-direction="-1"
+                aria-label="Previous setting"
+              >
+                ‹
+              </button>
+              <div class="card-text">
+                <p class="card-label">Setting</p>
+                <p class="card-value" data-display="setting">Castle</p>
+              </div>
+              <div class="card-art photo-card">
+                <img
+                  src="{{ url_for('character_images', filename='Setting/Castle.png') }}"
+                  alt="Setting: Castle"
+                  id="settingImage"
+                />
+              </div>
+              <select
+                name="setting"
+                id="settingSelect"
+                data-image-target="settingImage"
+                data-image-alt-prefix="Setting: "
+              >
+                <option
+                  value="Castle"
+                  data-image="{{ url_for('character_images', filename='Setting/Castle.png') }}"
+                  selected
+                >
+                  Castle
+                </option>
+                <option
+                  value="Underwater City"
+                  data-image="{{ url_for('character_images', filename='Setting/Underwater City.png') }}"
+                >
+                  Underwater City
+                </option>
+                <option
+                  value="Moon Colony"
+                  data-image="{{ url_for('character_images', filename='Setting/Moon Colony.png') }}"
+                >
+                  Moon Colony
+                </option>
+                <option
+                  value="Candy Forest"
+                  data-image="{{ url_for('character_images', filename='Setting/Candy Forest.png') }}"
+                >
+                  Candy Forest
+                </option>
+                <option
+                  value="Cloud Kingdom"
+                  data-image="{{ url_for('character_images', filename='Setting/Cloud Kingdom.png') }}"
+                >
+                  Cloud Kingdom
+                </option>
+              </select>
+              <button
+                type="button"
+                class="card-arrow next"
+                data-target="settingSelect"
+                data-direction="1"
+                aria-label="Next setting"
+              >
+                ›
+              </button>
+            </div>
+
+            <div class="option-card mint">
+              <button
+                type="button"
+                class="card-arrow prev"
+                data-target="genreSelect"
+                data-direction="-1"
+                aria-label="Previous genre"
+              >
+                ‹
+              </button>
+              <div class="card-text">
+                <p class="card-label">Genre</p>
+                <p class="card-value" data-display="genre">Adventure</p>
+              </div>
+              <div class="card-art photo-card">
+                <img
+                  src="{{ url_for('character_images', filename='Genre/Adventure.jpg') }}"
+                  alt="Genre: Adventure"
+                  id="genreImage"
+                />
+              </div>
+              <select
+                name="genre"
+                id="genreSelect"
+                data-image-target="genreImage"
+                data-image-alt-prefix="Genre: "
+              >
+                <option
+                  value="Adventure"
+                  data-image="{{ url_for('character_images', filename='Genre/Adventure.png') }}"
+                  selected
+                >
+                  Adventure
+                </option>
+                <option
+                  value="Mystery"
+                  data-image="{{ url_for('character_images', filename='Genre/Mystery.png') }}"
+                >
+                  Mystery
+                </option>
+                <option
+                  value="Fairy Tale"
+                  data-image="{{ url_for('character_images', filename='Genre/Fairy Tale.png') }}"
+                >
+                  Fairy Tale
+                </option>
+                <option
+                  value="Sci-Fi"
+                  data-image="{{ url_for('character_images', filename='Genre/Sci-Fi.png') }}"
+                >
+                  Sci-Fi
+                </option>
+                <option
+                  value="Bedtime Lullaby"
+                  data-image="{{ url_for('character_images', filename='Genre/Bedtime Lullaby.png') }}"
+                >
+                  Bedtime Lullaby
+                </option>
+              </select>
+              <button
+                type="button"
+                class="card-arrow next"
+                data-target="genreSelect"
+                data-direction="1"
+                aria-label="Next genre"
+              >
+                ›
+              </button>
+            </div>
+
+            <div class="option-card amber">
+              <button
+                type="button"
+                class="card-arrow prev"
+                data-target="toneSelect"
+                data-direction="-1"
+                aria-label="Previous tone"
+              >
+                ‹
+              </button>
+              <div class="card-text">
+                <p class="card-label">Tone</p>
+                <p class="card-value" data-display="tone">Funny</p>
+              </div>
+              <div class="card-art photo-card">
+                <img
+                  src="{{ url_for('character_images', filename='Tone/Funny.png') }}"
+                  alt="Tone: Funny"
+                  id="toneImage"
+                />
+              </div>
+              <select
+                name="tone"
+                id="toneSelect"
+                data-image-target="toneImage"
+                data-image-alt-prefix="Tone: "
+              >
+                <option
+                  value="Funny"
+                  data-image="{{ url_for('character_images', filename='Tone/Funny.png') }}"
+                  selected
+                >
+                  Funny
+                </option>
+                <option
+                  value="Heartwarming"
+                  data-image="{{ url_for('character_images', filename='Tone/Heartwarming.png') }}"
+                >
+                  Heartwarming
+                </option>
+                <option
+                  value="Brave"
+                  data-image="{{ url_for('character_images', filename='Tone/Brave.png') }}"
+                >
+                  Brave
+                </option>
+                <option
+                  value="Magical"
+                  data-image="{{ url_for('character_images', filename='Tone/Magical.png') }}"
+                >
+                  Magical
+                </option>
+                <option
+                  value="Sleepy"
+                  data-image="{{ url_for('character_images', filename='Tone/Sleepy.png') }}"
+                >
+                  Sleepy
+                </option>
+              </select>
+              <button
+                type="button"
+                class="card-arrow next"
+                data-target="toneSelect"
+                data-direction="1"
+                aria-label="Next tone"
+              >
+                ›
+              </button>
+            </div>
+          </section>
+
+          <section class="length-section">
+            <p class="length-title">Story Length</p>
+            <div class="length-options">
+              <label class="length-option">
+                <input type="radio" name="length" value="short" />
+                <span>
+                  <strong>Short</strong>
+                  <small>≈3 paragraphs</small>
+                </span>
+              </label>
+              <label class="length-option">
+                <input type="radio" name="length" value="medium" checked />
+                <span>
+                  <strong>Medium</strong>
+                  <small>≈5 paragraphs</small>
+                </span>
+              </label>
+              <label class="length-option">
+                <input type="radio" name="length" value="long" />
+                <span>
+                  <strong>Long</strong>
+                  <small>≈7+ paragraphs</small>
+                </span>
+              </label>
+            </div>
+          </section>
+
+          <div class="actions">
+            <button class="primary-btn" type="submit">
+              <span class="btn-text">Generate Story</span>
+              <span class="btn-glow"></span>
+            </button>
+          </div>
+        </form>
+
+        <section class="story-section">
+          <div class="story-card" id="storyCard">
+            <p class="story-placeholder">
+              Your personalized story will appear here with cozy paragraphs once you
+              hit the Generate button.
+            </p>
+          </div>
+          <div class="story-download">
+            <button type="button" class="secondary-btn" id="downloadBtn" disabled>
+              Download Story as PDF
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+  </body>
+</html>
